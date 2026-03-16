@@ -36,52 +36,60 @@
     let canvas: HTMLCanvasElement;
     let mouse = $state({ x: 0, y: 0 });
 
+    class Particle {
+        x: number;
+        y: number;
+        size: number;
+        spX: number;
+        spY: number;
+
+        constructor(canvas: HTMLCanvasElement) {
+            this.x = Math.random() * canvas.width;
+            this.y = Math.random() * canvas.height;
+            this.size = Math.random() * 2 + 0.5;
+            this.spX = Math.random() * 1 - 0.5;
+            this.spY = Math.random() * 1 - 0.5;
+        }
+
+        update(canvas: HTMLCanvasElement, mouse: { x: number, y: number }) {
+            this.x += this.spX;
+            this.y += this.spY;
+            
+            // Mouse interaction
+            const dx = mouse.x - this.x;
+            const dy = mouse.y - this.y;
+            const dist = Math.sqrt(dx * dx + dy * dy);
+            if (dist < 150) {
+                this.x -= dx * 0.02;
+                this.y -= dy * 0.02;
+            }
+
+            if (this.x < 0) this.x = canvas.width;
+            if (this.x > canvas.width) this.x = 0;
+            if (this.y < 0) this.y = canvas.height;
+            if (this.y > canvas.height) this.y = 0;
+        }
+
+        draw(ctx: CanvasRenderingContext2D) {
+            ctx.fillStyle = 'rgba(0, 229, 255, 0.3)';
+            ctx.beginPath();
+            ctx.arc(this.x, this.y, this.size, 0, Math.PI * 2);
+            ctx.fill();
+        }
+    }
+
     onMount(() => {
         yearsValue.set(3);
         projectsValue.set(100);
 
         const ctx = canvas.getContext('2d')!;
-        let particles: any[] = [];
+        let particles: Particle[] = [];
         let animationFrame: number;
 
         const resize = () => {
             canvas.width = window.innerWidth;
             canvas.height = window.innerHeight;
         };
-
-        class Particle {
-            x = Math.random() * canvas.width;
-            y = Math.random() * canvas.height;
-            size = Math.random() * 2 + 0.5;
-            spX = Math.random() * 1 - 0.5;
-            spY = Math.random() * 1 - 0.5;
-
-            update() {
-                this.x += this.spX;
-                this.y += this.spY;
-                
-                // Mouse interaction
-                const dx = mouse.x - this.x;
-                const dy = mouse.y - this.y;
-                const dist = Math.sqrt(dx * dx + dy * dy);
-                if (dist < 150) {
-                    this.x -= dx * 0.02;
-                    this.y -= dy * 0.02;
-                }
-
-                if (this.x < 0) this.x = canvas.width;
-                if (this.x > canvas.width) this.x = 0;
-                if (this.y < 0) this.y = canvas.height;
-                if (this.y > canvas.height) this.y = 0;
-            }
-
-            draw() {
-                ctx.fillStyle = 'rgba(0, 229, 255, 0.3)';
-                ctx.beginPath();
-                ctx.arc(this.x, this.y, this.size, 0, Math.PI * 2);
-                ctx.fill();
-            }
-        }
 
         const handleMouseMove = (e: MouseEvent) => {
             mouse.x = e.clientX;
@@ -90,7 +98,7 @@
 
         const init = () => {
             resize();
-            particles = Array.from({ length: 100 }, () => new Particle());
+            particles = Array.from({ length: 100 }, () => new Particle(canvas));
             window.addEventListener('resize', resize);
             window.addEventListener('mousemove', handleMouseMove);
         };
@@ -98,8 +106,8 @@
         const animate = () => {
             ctx.clearRect(0, 0, canvas.width, canvas.height);
             particles.forEach(p => {
-                p.update();
-                p.draw();
+                p.update(canvas, mouse);
+                p.draw(ctx);
             });
             animationFrame = requestAnimationFrame(animate);
         };
@@ -618,10 +626,7 @@
         left: 100%;
     }
 
-    .interactive-glitch:hover .btn-text {
-        animation: glitch-text 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94) both
-            infinite;
-    }
+
 
     @keyframes glitch-text {
         0% {
