@@ -156,7 +156,7 @@
                         <!-- svelte-ignore a11y_mouse_events_have_key_events -->
                         <div
                             class="thumb-card {hoveredItem?.slug === item.slug ? 'hovered' : ''} {item.aspect_ratio || 'portrait'}"
-                            style="{cardStyle(item)}; width: {(item.aspect_ratio === 'landscape') ? '560px' : '180px'}"
+                            style={cardStyle(item)}
                             onmouseenter={(e) => onEnter(item, e)}
                             onmouseleave={onLeave}
                             onclick={() => openItem(item)}
@@ -414,7 +414,6 @@
         overflow: hidden;
         flex-shrink: 0;
         cursor: pointer;
-        /* fallback color لو مفيش صورة */
         background-color: #071220;
         background-size: cover;
         background-position: center top;
@@ -427,6 +426,14 @@
             transform 0.35s cubic-bezier(0.25, 0.46, 0.45, 0.94),
             box-shadow 0.35s ease,
             border-color 0.35s ease;
+    }
+
+    .thumb-card.portrait {
+        width: 180px;
+    }
+
+    .thumb-card.landscape {
+        width: 560px;
     }
 
     .thumb-card:hover,
@@ -624,9 +631,16 @@
     @media (max-width: 768px) {
         .portfolio-rows-section { padding: 70px 0 90px; }
         .container { padding: 0 20px; }
-        .thumb-card { width: 140px; height: 248px; }
         .section-head { margin-bottom: 45px; }
-        .category-row { margin-bottom: 45px; }
+        .category-row { margin-bottom: 35px; }
+        
+        .thumb-card { height: 260px; }
+        .thumb-card.portrait { width: 150px; }
+        .thumb-card.landscape { width: 300px; }
+        
+        .row-header { padding: 0 20px; margin-bottom: 15px; }
+        .items-track { padding: 0 20px; gap: 12px; }
+
         .float-popup { display: none; }
     }
 </style>

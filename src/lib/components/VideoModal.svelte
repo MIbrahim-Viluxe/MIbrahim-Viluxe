@@ -58,15 +58,22 @@
                 <i class="fas fa-times"></i>
             </button>
             <div class="video-container">
-                <iframe
-                    src={videoUrl}
-                    title={$lang === "ar"
-                        ? $selectedVideo.title_ar
-                        : $selectedVideo.title_en}
-                    frameborder="0"
-                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                    allowfullscreen
-                ></iframe>
+                {#if videoUrl}
+                    <iframe
+                        src={videoUrl}
+                        title={$lang === "ar"
+                            ? $selectedVideo.title_ar
+                            : $selectedVideo.title_en}
+                        frameborder="0"
+                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                        allowfullscreen
+                    ></iframe>
+                {:else}
+                    <div class="video-error">
+                        <i class="fas fa-exclamation-triangle"></i>
+                        <p>{$lang === 'ar' ? 'عذراً، لا يمكن تشغيل هذا الفيديو حالياً' : 'Sorry, this video cannot be played right now'}</p>
+                    </div>
+                {/if}
             </div>
             <div class="video-info" dir={$lang === "ar" ? "rtl" : "ltr"}>
                 <h3>
@@ -158,5 +165,24 @@
         color: white;
         font-size: 1.25rem;
         font-weight: 700;
+    }
+
+    .video-error {
+        position: absolute;
+        inset: 0;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        gap: 15px;
+        color: #859dbb;
+        text-align: center;
+        padding: 20px;
+    }
+
+    .video-error i {
+        font-size: 3rem;
+        color: var(--primary);
+        opacity: 0.5;
     }
 </style>

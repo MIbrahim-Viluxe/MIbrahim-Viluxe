@@ -170,7 +170,7 @@
 						onclick={() => (mobileMenuOpen = !mobileMenuOpen)}
 						aria-label="Menu"
 					>
-						<i class="nav-icon fas fa-bars"></i>
+						<i class="nav-icon fas fa-bars" style="color: #00eaff; font-size: 24px;"></i>
 					</button>
 					{#if mobileMenuOpen}
 						<!-- svelte-ignore a11y_click_events_have_key_events -->
@@ -405,13 +405,15 @@
 			display: flex;
 			justify-content: space-between;
 			align-items: center;
-			padding: 16px 30px;
-			border-radius: 50px;
+			padding: 12px 20px;
+			border-radius: 40px;
 			width: 95%;
-			max-width: 750px;
+			max-width: 800px;
 			box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
 			border: 1px solid rgba(255, 255, 255, 0.05);
-			background: linear-gradient(to right, #04132a, #071c3d);
+			background: rgba(4, 19, 42, 0.85);
+            backdrop-filter: blur(15px);
+            -webkit-backdrop-filter: blur(15px);
 		}
 
 		/* Original Tech Background */
@@ -614,6 +616,17 @@
 		.nav-icon-btn:hover .nav-icon::before {
 			transform: translate(-50%, -50%) scale(1);
 		}
+
+        @media (max-width: 768px) {
+            .nav-icon {
+                font-size: 24px !important;
+                margin: 0 !important;
+            }
+            .lang-btn {
+                padding: 4px 10px;
+                font-size: 0.75rem;
+            }
+        }
 
 		.lang-btn {
 			background: rgba(255, 255, 255, 0.1);
@@ -942,6 +955,13 @@
 		}
 
 		@media (max-width: 768px) {
+            .nav {
+                top: 10px;
+                padding: 10px 18px;
+                width: 96%;
+                border-radius: 30px;
+            }
+
 			.desktop-only-menu {
 				display: none !important;
 			}
@@ -952,7 +972,12 @@
 
 			.nav-left {
 				width: auto;
+                gap: 10px;
 			}
+
+            .nav-icon {
+                margin: 0 5px;
+            }
 
 			.footer-grid {
 				grid-template-columns: 1fr;

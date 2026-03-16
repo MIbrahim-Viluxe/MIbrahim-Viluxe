@@ -284,6 +284,21 @@
         opacity: 1;
     }
 
+    @media (max-width: 768px) {
+        .overlay-icon {
+            opacity: 1;
+            transform: translate(-50%, -50%) scale(0.8);
+            background: rgba(0, 229, 255, 0.7);
+        }
+        .category-badge {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        .card-title {
+            font-size: 1rem;
+        }
+    }
+
     .card-content {
         padding: 20px;
         background: transparent;
