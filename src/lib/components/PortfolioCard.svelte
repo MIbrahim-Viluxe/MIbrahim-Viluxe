@@ -35,8 +35,9 @@
         }
 
         if (ytId) {
-            // Priority: maxresdefault for high quality, fallback to hqdefault
-            return `https://i.ytimg.com/vi/${ytId}/maxresdefault.jpg`;
+            // Use hqdefault for mobile to save bandwidth/GPU, maxres for desktop
+            const isMobile = typeof window !== 'undefined' && window.innerWidth <= 768;
+            return `https://i.ytimg.com/vi/${ytId}/${isMobile ? 'hqdefault' : 'maxresdefault'}.jpg`;
         }
 
         // 3. Absolute fallback

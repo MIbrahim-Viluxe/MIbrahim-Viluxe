@@ -98,7 +98,10 @@
 
         const init = () => {
             resize();
-            particles = Array.from({ length: 100 }, () => new Particle(canvas));
+            // High CPU usage particles only for desktop
+            if (window.innerWidth > 768) {
+                particles = Array.from({ length: 100 }, () => new Particle(canvas));
+            }
             window.addEventListener('resize', resize);
             window.addEventListener('mousemove', handleMouseMove);
         };

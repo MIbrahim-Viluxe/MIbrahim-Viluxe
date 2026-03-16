@@ -50,12 +50,22 @@
 				});
 		};
 
-		// Track immediately and then constantly check for newly rendered components
+		// Track immediately
 		trackNewElements();
-		const interval = setInterval(trackNewElements, 300);
+
+        // Instead of a heavy interval, we use a MutationObserver 
+        // to detect new elements added to the DOM
+        const mutationObserver = new MutationObserver(() => {
+            trackNewElements();
+        });
+
+        mutationObserver.observe(document.body, {
+            childList: true,
+            subtree: true
+        });
 
 		return () => {
-			clearInterval(interval);
+			mutationObserver.disconnect();
 			observer.disconnect();
 		};
 	});
@@ -438,7 +448,17 @@
 			filter: blur(80px);
 			opacity: 0.5;
 			animation: floatContainer 10s infinite alternate ease-in-out;
+            will-change: transform;
 		}
+
+        @media (max-width: 768px) {
+            .orb {
+                display: none; /* Blurs are the #1 killer of mobile performance */
+            }
+            .tech-background {
+                background: #020a1c; /* Solid color fallback */
+            }
+        }
 
 		.orb-1 {
 			top: -10%;
