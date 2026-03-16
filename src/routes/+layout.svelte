@@ -174,7 +174,7 @@
 		<header class="nav glass">
 			<div class="nav-left">
                 <Logo />
-				<div class="mobile-only-menu">
+				<div class="mobile-nav-toggle">
 					<button
 						class="nav-icon-btn"
 						onclick={() => (mobileMenuOpen = !mobileMenuOpen)}
@@ -216,7 +216,7 @@
 				</div>
 			</div>
 
-			<div class="nav-center desktop-only-menu">
+			<div class="nav-center desktop-nav-menu">
 				<a href="/" class="nav-text-link"
 					>{t(settings, "nav.home", $lang) ||
 						($lang === "ar" ? "الرئيسية" : "Home")}</a
@@ -982,12 +982,12 @@
                 border-radius: 30px;
             }
 
-			.desktop-only-menu {
+			.desktop-nav-menu {
 				display: none !important;
 			}
 
-			.mobile-only-menu {
-				display: block;
+			.mobile-nav-toggle {
+				display: block !important;
 			}
 
 			.nav-left {
