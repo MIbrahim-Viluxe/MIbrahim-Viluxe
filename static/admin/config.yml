@@ -1,0 +1,908 @@
+backend:
+  name: github
+  repo: bayansads2000-boop/ARTVISIONSTUDIO
+  branch: main
+
+local_backend: true
+
+publish_mode: editorial_workflow
+
+media_folder: "static/uploads"
+public_folder: "/uploads"
+
+collections:
+  - name: "settings"
+    label: "⚙️ الإعدادات والمحتوى"
+    delete: false
+    editor:
+      preview: false
+    files:
+      - name: "general"
+        label: "المحتوى الرئيسي (هيرو، تواصل، سيو)"
+        file: "src/lib/data/settings.json"
+        format: "json"
+        fields:
+          - label: "البيانات الأساسية"
+            name: "basic_info"
+            widget: "object"
+            fields:
+              - {
+                  label: "عنوان المتصفح",
+                  name: "site_title",
+                  widget: "string",
+                  default: "Art Vision Studio",
+                  required: true,
+                }
+              - {
+                  label: "وصف الـ SEO",
+                  name: "site_description",
+                  widget: "text",
+                  required: true,
+                }
+              - {
+                  label: "اللوجو (صورة)",
+                  name: "logo",
+                  widget: "image",
+                  required: true,
+                }
+              - {
+                  label: "رابط الموقع (URL)",
+                  name: "site_url",
+                  widget: "string",
+                  default: "https://artvisionstudio.pages.dev",
+                  required: true,
+                }
+
+          - label: "إعدادات SEO & Social Meta"
+            name: "meta"
+            widget: "object"
+            fields:
+              - {
+                  label: "صورة المشاركة (OG Image)",
+                  name: "og_image",
+                  widget: "image",
+                  required: true,
+                }
+              - {
+                  label: "اسم المنظمة (Organization Name)",
+                  name: "org_name",
+                  widget: "string",
+                  default: "Art Vision Studio",
+                  required: true,
+                }
+
+          - label: "الرسائل التلقائية (WhatsApp)"
+            name: "whatsapp_messages"
+            widget: "object"
+            fields:
+              - {
+                  label: "رسالة الهيرو",
+                  name: "hero_msg",
+                  widget: "string",
+                  default: "مرحباً ART VISION، أريد الاستفسار عن خدماتكم.",
+                  required: true,
+                }
+              - {
+                  label: "رسالة الباقات",
+                  name: "package_msg",
+                  widget: "string",
+                  default: "مرحباً، أريد الاشتراك في باقة: ",
+                  required: true,
+                }
+              - {
+                  label: "رسالة معرض الأعمال",
+                  name: "portfolio_msg",
+                  widget: "string",
+                  default: "مرحباً، أعجبني هذا العمل وأريد تنفيذ شيء مشابه: ",
+                  required: true,
+                }
+
+          - label: "قسم الهيرو (الواجهة الرئيسية)"
+            name: "hero"
+            widget: "object"
+            fields:
+              - {
+                  label: "البداية (AR)",
+                  name: "subtitle_prefix_ar",
+                  widget: "string",
+                  default: "نحن نرتقي بـ",
+                  required: true,
+                }
+              - {
+                  label: "البداية (EN)",
+                  name: "subtitle_prefix_en",
+                  widget: "string",
+                  default: "WE ELEVATE",
+                  required: true,
+                }
+              - {
+                  label: "العنوان الرئيسي (AR)",
+                  name: "title_accent_ar",
+                  widget: "string",
+                  default: "رؤيتك الإبداعية",
+                  required: true,
+                }
+              - {
+                  label: "العنوان الرئيسي (EN)",
+                  name: "title_accent_en",
+                  widget: "string",
+                  default: "YOUR VISION",
+                  required: true,
+                }
+              - {
+                  label: "الوصف (AR)",
+                  name: "subtitle_ar",
+                  widget: "text",
+                  required: true,
+                }
+              - {
+                  label: "الوصف (EN)",
+                  name: "subtitle_en",
+                  widget: "text",
+                  required: true,
+                }
+              - {
+                  label: "نص الزر الأساسي (AR)",
+                  name: "cta_text_ar",
+                  widget: "string",
+                  default: "شاهد أعمالنا",
+                  required: true,
+                }
+              - {
+                  label: "نص الزر الأساسي (EN)",
+                  name: "cta_text_en",
+                  widget: "string",
+                  default: "View Work",
+                  required: true,
+                }
+              - {
+                  label: "نص الزر الفرعي (AR)",
+                  name: "cta_outline_text_ar",
+                  widget: "string",
+                  default: "ابدأ الآن",
+                  required: true,
+                }
+              - {
+                  label: "نص الزر الفرعي (EN)",
+                  name: "cta_outline_text_en",
+                  widget: "string",
+                  default: "Start Now",
+                  required: true,
+                }
+              - {
+                  label: "صورة الخلفية",
+                  name: "bg_image",
+                  widget: "image",
+                  required: false,
+                }
+
+          - label: "نصوص صفحات الموقع (Headers)"
+            name: "pages"
+            widget: "object"
+            fields:
+              - label: "صفحة الخدمات"
+                name: "services"
+                widget: "object"
+                fields:
+                  - {
+                      label: "العنوان الرئيسي (AR)",
+                      name: "title_ar",
+                      widget: "string",
+                      default: "خدماتنا الإبداعية",
+                      required: true,
+                    }
+                  - {
+                      label: "العنوان الرئيسي (EN)",
+                      name: "title_en",
+                      widget: "string",
+                      default: "Our Creative Services",
+                      required: true,
+                    }
+                  - {
+                      label: "الوصف (AR)",
+                      name: "desc_ar",
+                      widget: "text",
+                      required: true,
+                    }
+                  - {
+                      label: "الوصف (EN)",
+                      name: "desc_en",
+                      widget: "text",
+                      required: true,
+                    }
+              - label: "صفحة أعمالنا"
+                name: "portfolio"
+                widget: "object"
+                fields:
+                  - {
+                      label: "العنوان الرئيسي (AR)",
+                      name: "title_ar",
+                      widget: "string",
+                      default: "معرض أعمالنا",
+                      required: true,
+                    }
+                  - {
+                      label: "العنوان الرئيسي (EN)",
+                      name: "title_en",
+                      widget: "string",
+                      default: "Our Portfolio",
+                      required: true,
+                    }
+                  - {
+                      label: "الوصف (AR)",
+                      name: "desc_ar",
+                      widget: "text",
+                      required: true,
+                    }
+                  - {
+                      label: "الوصف (EN)",
+                      name: "desc_en",
+                      widget: "text",
+                      required: true,
+                    }
+              - label: "صفحة الباقات"
+                name: "packages"
+                widget: "object"
+                fields:
+                  - {
+                      label: "العنوان الرئيسي (AR)",
+                      name: "title_ar",
+                      widget: "string",
+                      default: "باقاتنا الإبداعية",
+                      required: true,
+                    }
+                  - {
+                      label: "العنوان الرئيسي (EN)",
+                      name: "title_en",
+                      widget: "string",
+                      default: "Our Creative Packages",
+                      required: true,
+                    }
+                  - {
+                      label: "الوصف (AR)",
+                      name: "desc_ar",
+                      widget: "text",
+                      required: true,
+                    }
+                  - {
+                      label: "الوصف (EN)",
+                      name: "desc_en",
+                      widget: "text",
+                      required: true,
+                    }
+
+          - label: "نصوص قسم تواصل معنا (CTA)"
+            name: "contact_cta"
+            widget: "object"
+            fields:
+              - {
+                  label: "العنوان (AR)",
+                  name: "title_ar",
+                  widget: "string",
+                  default: "جاهز لنبدأ الإبداع؟",
+                  required: true,
+                }
+              - {
+                  label: "العنوان (EN)",
+                  name: "title_en",
+                  widget: "string",
+                  default: "Ready to Start?",
+                  required: true,
+                }
+              - {
+                  label: "الوصف (AR)",
+                  name: "desc_ar",
+                  widget: "text",
+                  default: "نحن هنا لنحول فكرتك إلى واقع مبهر.",
+                  required: true,
+                }
+              - {
+                  label: "الوصف (EN)",
+                  name: "desc_en",
+                  widget: "text",
+                  default: "We are here to turn your idea into a stunning reality.",
+                  required: true,
+                }
+              - {
+                  label: "عنوان صندوق التواصل (AR)",
+                  name: "box_title_ar",
+                  widget: "string",
+                  default: "هل لديك مشروع في بالك؟",
+                  required: true,
+                }
+              - {
+                  label: "عنوان صندوق التواصل (EN)",
+                  name: "box_title_en",
+                  widget: "string",
+                  default: "Have a project in mind?",
+                  required: true,
+                }
+              - {
+                  label: "وصف صندوق التواصل (AR)",
+                  name: "box_desc_ar",
+                  widget: "text",
+                  default: "تواصل معنا الآن لنبدأ العمل على مشروعك القادم ونحوله إلى واقع.",
+                  required: true,
+                }
+              - {
+                  label: "وصف صندوق التواصل (EN)",
+                  name: "box_desc_en",
+                  widget: "text",
+                  default: "Contact us now to start working on your next project and turn it into reality.",
+                  required: true,
+                }
+              - {
+                  label: "نص الزر (AR)",
+                  name: "btn_text_ar",
+                  widget: "string",
+                  default: "تواصل معنا الآن",
+                  required: true,
+                }
+              - {
+                  label: "نص الزر (EN)",
+                  name: "btn_text_en",
+                  widget: "string",
+                  default: "Contact Us Now",
+                  required: true,
+                }
+
+          - label: "روابط التواصل"
+            name: "contact"
+            widget: "object"
+            fields:
+              - {
+                  label: "رقم الواتساب (بدون +)",
+                  name: "whatsapp",
+                  widget: "string",
+                  required: true,
+                }
+              - {
+                  label: "الايميل",
+                  name: "email",
+                  widget: "string",
+                  required: true,
+                }
+              - {
+                  label: "الهاتف",
+                  name: "phone",
+                  widget: "string",
+                  required: true,
+                }
+              - {
+                  label: "العنوان",
+                  name: "address",
+                  widget: "string",
+                  required: true,
+                }
+
+          - label: "تصميم الموقع (Colors)"
+            name: "theme"
+            widget: "object"
+            fields:
+              - {
+                  label: "اللون الأساسي",
+                  name: "primary_color",
+                  widget: "color",
+                  default: "#e31e24",
+                  required: true,
+                }
+              - {
+                  label: "الوهج (Glow) في الهيرو",
+                  name: "hero_glow_color",
+                  widget: "color",
+                  default: "#e31e24",
+                  required: true,
+                }
+              - {
+                  label: "لون النقاط المتحركة",
+                  name: "particle_color",
+                  widget: "color",
+                  default: "#E6EAF0",
+                  required: true,
+                }
+              - {
+                  label: "لون تموج السائل",
+                  name: "liquid_accent_color",
+                  widget: "color",
+                  default: "#3279F9",
+                  required: true,
+                }
+              - {
+                  label: "لون الخلفية",
+                  name: "bg_color",
+                  widget: "color",
+                  default: "#0a0a0a",
+                  required: true,
+                }
+
+      - name: "labels"
+        label: "🛠️ نصوص الواجهة والأزرار (متقدم)"
+        file: "src/lib/data/labels.json"
+        format: "json"
+        fields:
+          - label: "قائمة التنقل (Navbar)"
+            name: "nav"
+            widget: "object"
+            fields:
+              - {
+                  label: "الرئيسية (AR)",
+                  name: "home_ar",
+                  widget: "string",
+                  default: "الرئيسية",
+                  required: true,
+                }
+              - {
+                  label: "الرئيسية (EN)",
+                  name: "home_en",
+                  widget: "string",
+                  default: "Home",
+                  required: true,
+                }
+              - {
+                  label: "خدماتنا (AR)",
+                  name: "services_ar",
+                  widget: "string",
+                  default: "خدماتنا",
+                  required: true,
+                }
+              - {
+                  label: "خدماتنا (EN)",
+                  name: "services_en",
+                  widget: "string",
+                  default: "Services",
+                  required: true,
+                }
+              - {
+                  label: "أعمالنا (AR)",
+                  name: "portfolio_ar",
+                  widget: "string",
+                  default: "أعمالنا",
+                  required: true,
+                }
+              - {
+                  label: "أعمالنا (EN)",
+                  name: "portfolio_en",
+                  widget: "string",
+                  default: "Portfolio",
+                  required: true,
+                }
+              - {
+                  label: "الباقات (AR)",
+                  name: "packages_ar",
+                  widget: "string",
+                  default: "الباقات",
+                  required: true,
+                }
+              - {
+                  label: "الباقات (EN)",
+                  name: "packages_en",
+                  widget: "string",
+                  default: "Packages",
+                  required: true,
+                }
+              - {
+                  label: "اتصل بنا (AR)",
+                  name: "contact_ar",
+                  widget: "string",
+                  default: "اتصل بنا",
+                  required: true,
+                }
+              - {
+                  label: "اتصل بنا (EN)",
+                  name: "contact_en",
+                  widget: "string",
+                  default: "Contact",
+                  required: true,
+                }
+              - {
+                  label: "نص الزر (AR)",
+                  name: "cta_ar",
+                  widget: "string",
+                  default: "ابدأ مشروعك",
+                  required: true,
+                }
+              - {
+                  label: "نص الزر (EN)",
+                  name: "cta_en",
+                  widget: "string",
+                  default: "Start Project",
+                  required: true,
+                }
+
+          - label: "تذييل الموقع (Footer)"
+            name: "footer"
+            widget: "object"
+            fields:
+              - {
+                  label: "روابط سريعة (AR)",
+                  name: "quick_links_ar",
+                  widget: "string",
+                  default: "روابط سريعة",
+                  required: true,
+                }
+              - {
+                  label: "روابط سريعة (EN)",
+                  name: "quick_links_en",
+                  widget: "string",
+                  default: "Quick Links",
+                  required: true,
+                }
+              - {
+                  label: "تواصل معنا (AR)",
+                  name: "contact_us_ar",
+                  widget: "string",
+                  default: "تواصل معنا",
+                  required: true,
+                }
+              - {
+                  label: "تواصل معنا (EN)",
+                  name: "contact_us_en",
+                  widget: "string",
+                  default: "Contact Us",
+                  required: true,
+                }
+              - {
+                  label: "حقوق النشر (AR)",
+                  name: "rights_ar",
+                  widget: "string",
+                  default: "جميع الحقوق محفوظة",
+                  required: true,
+                }
+              - {
+                  label: "حقوق النشر (EN)",
+                  name: "rights_en",
+                  widget: "string",
+                  default: "All rights reserved",
+                  required: true,
+                }
+
+          - label: "نصوص عامة (Common Labels)"
+            name: "common"
+            widget: "object"
+            fields:
+              - {
+                  label: "الموقع (AR)",
+                  name: "location_ar",
+                  widget: "string",
+                  default: "الموقع",
+                  required: true,
+                }
+              - {
+                  label: "الموقع (EN)",
+                  name: "location_en",
+                  widget: "string",
+                  default: "Location",
+                  required: true,
+                }
+              - {
+                  label: "الايميل (AR)",
+                  name: "email_ar",
+                  widget: "string",
+                  default: "البريد الإلكتروني",
+                  required: true,
+                }
+              - {
+                  label: "الايميل (EN)",
+                  name: "email_en",
+                  widget: "string",
+                  default: "Email",
+                  required: true,
+                }
+              - {
+                  label: "الهاتف (AR)",
+                  name: "phone_ar",
+                  widget: "string",
+                  default: "الهاتف",
+                  required: true,
+                }
+              - {
+                  label: "الهاتف (EN)",
+                  name: "phone_en",
+                  widget: "string",
+                  default: "Phone",
+                  required: true,
+                }
+              - {
+                  label: "تحميل المزيد (AR)",
+                  name: "load_more_ar",
+                  widget: "string",
+                  default: "تحميل المزيد",
+                  required: true,
+                }
+              - {
+                  label: "تحميل المزيد (EN)",
+                  name: "load_more_en",
+                  widget: "string",
+                  default: "Load More",
+                  required: true,
+                }
+              - {
+                  label: "الكل (AR)",
+                  name: "all_ar",
+                  widget: "string",
+                  default: "الكل",
+                  required: true,
+                }
+              - {
+                  label: "الكل (EN)",
+                  name: "all_en",
+                  widget: "string",
+                  default: "All",
+                  required: true,
+                }
+              - {
+                  label: "مواقع ويب (AR)",
+                  name: "websites_ar",
+                  widget: "string",
+                  default: "مواقع ويب",
+                  required: true,
+                }
+              - {
+                  label: "مواقع ويب (EN)",
+                  name: "websites_en",
+                  widget: "string",
+                  default: "Websites",
+                  required: true,
+                }
+              - {
+                  label: "تصميمات (AR)",
+                  name: "designs_ar",
+                  widget: "string",
+                  default: "تصميمات",
+                  required: true,
+                }
+              - {
+                  label: "تصميمات (EN)",
+                  name: "designs_en",
+                  widget: "string",
+                  default: "Designs",
+                  required: true,
+                }
+              - {
+                  label: "فيديوهات (AR)",
+                  name: "videos_ar",
+                  widget: "string",
+                  default: "فيديوهات",
+                  required: true,
+                }
+              - {
+                  label: "فيديوهات (EN)",
+                  name: "videos_en",
+                  widget: "string",
+                  default: "Videos",
+                  required: true,
+                }
+              - {
+                  label: "الأكثر طلباً (AR)",
+                  name: "popular_ar",
+                  widget: "string",
+                  default: "الأكثر طلباً",
+                  required: true,
+                }
+              - {
+                  label: "الأكثر طلباً (EN)",
+                  name: "popular_en",
+                  widget: "string",
+                  default: "Popular",
+                  required: true,
+                }
+              - {
+                  label: "اطلب الآن (AR)",
+                  name: "order_now_ar",
+                  widget: "string",
+                  default: "اطلب الآن",
+                  required: true,
+                }
+              - {
+                  label: "اطلب الآن (EN)",
+                  name: "order_now_en",
+                  widget: "string",
+                  default: "Order Now",
+                  required: true,
+                }
+              - {
+                  label: "عرض جميع الأعمال (AR)",
+                  name: "view_all_works_ar",
+                  widget: "string",
+                  default: "عرض جميع الأعمال",
+                  required: true,
+                }
+              - {
+                  label: "عرض جميع الأعمال (EN)",
+                  name: "view_all_works_en",
+                  widget: "string",
+                  default: "View All Works",
+                  required: true,
+                }
+              - {
+                  label: "تفاصيل المشروع (AR)",
+                  name: "project_details_ar",
+                  widget: "string",
+                  default: "تفاصيل المشروع",
+                  required: true,
+                }
+              - {
+                  label: "تفاصيل المشروع (EN)",
+                  name: "project_details_en",
+                  widget: "string",
+                  default: "Project Details",
+                  required: true,
+                }
+              - {
+                  label: "طلب عمل مشابه (AR)",
+                  name: "order_similar_work_ar",
+                  widget: "string",
+                  default: "طلب عمل مشابه",
+                  required: true,
+                }
+              - {
+                  label: "طلب عمل مشابه (EN)",
+                  name: "order_similar_work_en",
+                  widget: "string",
+                  default: "Order Similar Work",
+                  required: true,
+                }
+              - {
+                  label: "تواصل الآن (AR)",
+                  name: "contact_now_ar",
+                  widget: "string",
+                  default: "تواصل الآن",
+                  required: true,
+                }
+              - {
+                  label: "تواصل الآن (EN)",
+                  name: "contact_now_en",
+                  widget: "string",
+                  default: "Contact Now",
+                  required: true,
+                }
+
+  - name: "portfolio"
+    label: "🎥 معرض الأعمال"
+    folder: "src/lib/data/portfolio"
+    create: true
+    format: "json"
+    extension: "json"
+    slug: "{{slug}}"
+    fields:
+      - {
+          label: "اسم العمل (AR)",
+          name: "title_ar",
+          widget: "string",
+          required: true,
+        }
+      - {
+          label: "اسم العمل (EN)",
+          name: "title_en",
+          widget: "string",
+          required: true,
+        }
+      - {
+          label: "التصنيف",
+          name: "category",
+          widget: "select",
+          options:
+            [
+              { label: "مواقع ويب", value: "websites" },
+              { label: "تصميمات", value: "designs" },
+              { label: "فيديوهات", value: "videos" },
+            ],
+          required: true,
+        }
+      - {
+          label: "الصورة الرئيسية",
+          name: "image",
+          widget: "image",
+          required: true,
+        }
+      - {
+          label: "رابط فيديو (YouTube/Vimeo)",
+          name: "video_link",
+          widget: "string",
+          required: false,
+        }
+      - {
+          label: "الوصف القصير (AR)",
+          name: "description_ar",
+          widget: "string",
+          required: true,
+        }
+      - {
+          label: "الوصف القصير (EN)",
+          name: "description_en",
+          widget: "string",
+          required: true,
+        }
+      - {
+          label: "محتوى العمل بالتفصيل (AR)",
+          name: "body_ar",
+          widget: "markdown",
+          required: true,
+        }
+      - {
+          label: "محتوى العمل بالتفصيل (EN)",
+          name: "body_en",
+          widget: "markdown",
+          required: true,
+        }
+      - {
+          label: "التاريخ",
+          name: "date",
+          widget: "datetime",
+          format: "YYYY-MM-DD",
+          required: false,
+        }
+
+  - name: "services"
+    label: "✨ الخدمات"
+    folder: "src/lib/data/services"
+    create: true
+    format: "json"
+    extension: "json"
+    slug: "{{slug}}"
+    fields:
+      - {
+          label: "اسم الخدمة (AR)",
+          name: "title_ar",
+          widget: "string",
+          required: true,
+        }
+      - {
+          label: "اسم الخدمة (EN)",
+          name: "title_en",
+          widget: "string",
+          required: true,
+        }
+      - { label: "الأيقونة", name: "icon", widget: "string", required: true }
+      - {
+          label: "شرح الخدمة (AR)",
+          name: "description_ar",
+          widget: "text",
+          required: true,
+        }
+      - {
+          label: "شرح الخدمة (EN)",
+          name: "description_en",
+          widget: "text",
+          required: true,
+        }
+
+  - name: "packages"
+    label: "💎 الباقات والأسعار"
+    folder: "src/lib/data/packages"
+    create: true
+    format: "json"
+    extension: "json"
+    slug: "{{slug}}"
+    fields:
+      - {
+          label: "اسم الباقة (AR)",
+          name: "title_ar",
+          widget: "string",
+          required: true,
+        }
+      - {
+          label: "اسم الباقة (EN)",
+          name: "title_en",
+          widget: "string",
+          required: true,
+        }
+      - { label: "السعر", name: "price", widget: "string", required: true }
+      - {
+          label: "المميزات (AR)",
+          name: "features_ar",
+          widget: "list",
+          required: true,
+        }
+      - {
+          label: "المميزات (EN)",
+          name: "features_en",
+          widget: "list",
+          required: true,
+        }
+      - {
+          label: "الأكثر طلباً؟",
+          name: "popular",
+          widget: "boolean",
+          default: false,
+        }

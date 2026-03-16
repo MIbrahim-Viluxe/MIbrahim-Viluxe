@@ -1,0 +1,80 @@
+{
+  "basic_info": {
+    "site_title": "محمد إبراهيم | Senior Video Editor",
+    "site_description": "Senior Video Editor specialized in visual storytelling, montage, and post-production using Adobe Premiere Pro & After Effects.",
+    "logo": "",
+    "site_url": "https://artvisionstudio.pages.dev"
+  },
+  "meta": {
+    "og_image": "profile.jpeg",
+    "org_name": "Mohamed Ibrahim"
+  },
+  "whatsapp_messages": {
+    "hero_msg": "مرحباً محمد، أريد الاستفسار عن خدمات المونتاج.",
+    "package_msg": "مرحباً، أريد الاستفسار عن باقة: ",
+    "portfolio_msg": "مرحباً، أعجبني هذا الفيديو وأريد تنفيذ شيء مشابه: "
+  },
+  "hero": {
+    "subtitle_prefix_ar": "نحن نصنع",
+    "subtitle_prefix_en": "WE CREATE",
+    "title_accent_ar": "نصنع أفلاماً مذهلة",
+    "title_accent_en": "CRAFTING STUNNING FILMS",
+    "subtitle_ar": "خبير في تحويل اللقطات العادية إلى تجارب مرئية استثنائية تترك أثراً لا يُنسى.",
+    "subtitle_en": "Expert in transforming ordinary footage into extraordinary visual experiences that leave a lasting impression.",
+    "cta_text_ar": "شاهد أعمالي",
+    "cta_text_en": "View My Work",
+    "cta_outline_text_ar": "تواصل معي",
+    "cta_outline_text_en": "Contact Me",
+    "bg_image": "https://images.unsplash.com/photo-1550745165-9bc0b252726f?auto=format&fit=crop&q=80&w=2000"
+  },
+  "pages": {
+    "services": {
+      "title_ar": "خدماتي الإبداعية",
+      "title_en": "My Creative Services",
+      "desc_ar": "نقدم حلولاً متكاملة في مجال تحرير الفيديو والمونتاج السينمائي لمساعدتك على التفرد.",
+      "desc_en": "Offering integrated video editing and cinematic montage solutions to help you stand out."
+    },
+    "portfolio": {
+      "title_ar": "معرض أعمالي",
+      "title_en": "My Portfolio",
+      "desc_ar": "استعرض مجموعة من أفضل المشاريع التي قمت بتنفيذها.",
+      "desc_en": "Explore a collection of the best projects I have executed."
+    },
+    "packages": {
+      "title_ar": "باقات المونتاج",
+      "title_en": "Montage Packages",
+      "desc_ar": "اختر الباقة المناسبة لاحتياجاتك وانطلق معنا اليوم.",
+      "desc_en": "Choose the right package for your needs and start with us today."
+    }
+  },
+  "contact_cta": {
+    "title_ar": "جاهز لنبدأ الإبداع؟",
+    "title_en": "Ready to Start?",
+    "desc_ar": "نحن هنا لنحول فكرتك إلى واقع مبهر.",
+    "desc_en": "We are here to turn your idea into a stunning reality.",
+    "box_title_ar": "هل لديك مشروع في بالك؟",
+    "box_title_en": "Have a project in mind?",
+    "box_desc_ar": "تواصل معي الآن لنبدأ العمل على مشروعك القادم ونحوله إلى واقع.",
+    "box_desc_en": "Contact me now to start working on your next project and turn it into reality.",
+    "btn_text_ar": "تواصل معي الآن",
+    "btn_text_en": "Contact Me Now"
+  },
+  "contact": {
+    "whatsapp": "201003614747",
+    "email": "mohamedibrahim4125@gmail.com",
+    "phone": "+201505273292",
+    "address": "القاهرة، مصر"
+  },
+  "theme": {
+    "primary_color": "#00E5FF",
+    "hero_glow_color": "#00E5FF",
+    "particle_color": "#FFFFFF",
+    "liquid_accent_color": "#020A1C",
+    "bg_color": "#010308"
+  },
+  "social": {
+    "facebook": "https://facebook.com/mohamedibrahim",
+    "instagram": "https://instagram.com/mohamedibrahim",
+    "youtube": "https://youtube.com/mohamedibrahim"
+  }
+}

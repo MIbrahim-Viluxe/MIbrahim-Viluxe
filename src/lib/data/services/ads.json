@@ -1,0 +1,8 @@
+{
+  "title_ar": "تلوين سينمائي",
+  "title_en": "Cinematic Color Grading",
+  "icon": "🎨",
+  "description_ar": "تصحيح وتحسين الألوان باستخدام DaVinci Resolve لإعطاء الفيديوهات مظهراً احترافياً وسينمائياً.",
+  "description_en": "Color correction and enhancement using DaVinci Resolve to give videos a professional and cinematic look.",
+  "slug": "color-grading"
+}

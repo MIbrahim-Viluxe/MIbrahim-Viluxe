@@ -1,0 +1,18 @@
+{
+  "title_ar": "باقة المتجر الإلكتروني",
+  "title_en": "E-Commerce Pack",
+  "price": "$1499",
+  "features_ar": [
+    "إضافة 100 منتج",
+    "بوابة دفع إلكتروني",
+    "لوحة تحكم سهلة",
+    "تدريب على الإدارة"
+  ],
+  "features_en": [
+    "100 Products Entry",
+    "Payment Gateway Integration",
+    "Easy Admin Dashboard",
+    "Management Training"
+  ],
+  "popular": true
+}
